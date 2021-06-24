@@ -36,6 +36,10 @@ module.exports = function (eleventyConfig) {
   // STATIC FILES
   eleventyConfig.addPassthroughCopy({ './src/static/': '/' });
 
+  eleventyConfig.addPassthroughCopy({
+    "./src/admin/config.yml": "./admin/config.yml",
+    "./src/admin/index.html": "./admin/index.html",
+  });
   // TRANSFORM -- Minify HTML Output
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
     if( outputPath && outputPath.endsWith(".html") ) {
