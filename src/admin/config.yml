@@ -1,7 +1,7 @@
 backend:
   # Use netlify identity as backend
   name: git-gateway
-  branch: master
+  branch: main
   ### enable below lines for github integration ###
   # name: github
   # repo: surjithctly/neat-starter
@@ -12,35 +12,41 @@ public_folder: "/static/img"
 local_backend: true
 # publish_mode: editorial_workflow
 collections:
-  - label: "Page"
-    name: "page"
+  - label: SiteSettings
+    name: sitesettings
     editor:
       preview: false
     files:
-      - label: "Home"
-        name: "home"
-        file: "src/index.html"
+      - label: site.json
+        name: site
+        file: "src/_data/site.json"
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Body, name: body, widget: "markdown" }
-  - label: "Blog"
-    name: "blog"
-    folder: "src/posts"
+        - {label: "Author", name: "author", widget: "string"}
+        - {label: "Description", name: "description", widget: "string"}
+        - {label: "Title", name: "title", widget: "string"}
+        - label: "Social"
+          name: "social"
+          widget: "list"
+          fields:
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "URL", name: "url", widget: "string"}
+  - label: SiteFeatures
+    name: sitefeatures
     create: true
     editor:
       preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - widget: select
-        label: "tags"
-        name: "tags"
-        multiple: true
-        create: true
-        options: ["Tags", "created", "from", "config.yml"]
+    files:
+      - label: features.json
+        name: features
+        file: "src/_data/features.json"
+        fields:
+          - label: "Feature" 
+            name: "feature"
+            widget: "list"
+            fields: 
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "Icon", name: "icon", widget: "string"}
+            - {label: "Content", name: "content", widget: "string"}
   - label: "Shortcut"
     name: "shortcut"
     folder: "src/shortcuts"
