@@ -54,9 +54,10 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "layout", name: "layout", widget: "hidden", default: "redirect.njk"}
       - { label: "Title", name: "title", widget: "string" }
       - { label: "RedirectTo", name: "redirectTo", widget: "string" }
-      - {label: "permalink", name: "permalink", widget: "hidden", default: "{{ title | slug }}/index.html"}
+      - { label: "permalink", name: "permalink", widget: "hidden", default: "{{ title | slug }}/index.html"}
   - label: "Settings"
     name: "settings"
     editor:
