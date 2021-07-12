@@ -32,7 +32,10 @@ module.exports = {
       green: colors.emerald,
       blue: colors.blue,
       indigo: colors.indigo,
-      purple: colors.violet,
+      /*purple: colors.violet,*/
+      purple: {
+        600: '#164163'
+      },
       pink: colors.pink,
     },
     spacing: {
